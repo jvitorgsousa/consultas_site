@@ -78,11 +78,32 @@ router.get('/get/:id', async (req, res) => {
 // replace
 router.put('/atualizar/:id', async (req, res) => {
   try {
-    const pacienteAtualizado = await Paciente.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!pacienteAtualizado) return res.status(404).json({ error: '[X] ERRO AO ATUALIZAR PACIENTE' }, error.message);
+    const { id } = req.params;
+    const updateData = req.body;
+
+    if (!updateData || Object.keys(updateData).length === 0) {
+      return res.status(400).json({ error: 'O corpo da requisição não pode estar vazio' });
+    }
+
+    const pacienteAtualizado = await Paciente.findByIdAndUpdate(
+      id,
+      updateData,
+      { 
+        new: true,
+        runValidators: true 
+      }
+    );
+
+    if (!pacienteAtualizado) {
+      return res.status(404).json({ error: 'Paciente não encontrado' });
+    }
+
     res.status(200).json(pacienteAtualizado);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ 
+      error: 'Erro ao atualizar paciente',
+      details: error.message 
+    });
   }
 });
 
@@ -103,4 +124,4 @@ router.delete('/delete/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = router; 
