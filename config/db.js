@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose')
 
-const uri = "mongodb+srv://jovitgomesou:zmRAcD3sZGCYrrY2@cluster-salus.j8qw6jf.mongodb.net/?retryWrites=true&w=majority&appName=cluster-salus"
+const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("[!] CONECTADO AO BANCO DE DADOS"))
