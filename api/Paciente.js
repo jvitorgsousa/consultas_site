@@ -86,6 +86,11 @@ router.put('/atualizar/:cpfPaciente', async (req, res) => {
       return res.status(400).json({ error: 'O corpo da requisição não pode estar vazio' });
     }
 
+    if (updateData.senhaPaciente) {
+      const senhaCrypt = await bcrypt.hash(updateData.senhaPaciente, 10);
+      updateData.senhaPaciente = senhaCrypt;
+    }
+
     const pacienteAtualizado = await Paciente.findOneAndUpdate(
       { cpfPaciente: cpf },
       updateData,
