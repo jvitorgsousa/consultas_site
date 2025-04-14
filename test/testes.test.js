@@ -70,7 +70,33 @@ describe('Testes no GET', () => {
     const res = await request(app).get('/api/paciente/get');
     expect(res.statusCode).toEqual(200);
   });
-  
+  test('Paciente especifico encontrado', async () => {
+    const pacienteValido = {
+      cpfPaciente: '123.456.789-01',
+      nomePaciente: 'Teste da Silva',
+      dataNascimento: '19/03/2004',
+      emailPaciente: 'teste.silva@example.com',
+      senhaPaciente: 'senha123',
+      telefonePaciente: '11987654321',
+      enderecoPaciente: {
+        cep: "58700-015",
+        logradouro: "casa",
+        numero: "001",
+        complemento: "Esquina",
+        bairro: "Centro",
+        cidade: "Patos",
+        estado: "PB"
+      },
+      generoPaciente: 'Masculino'
+    };
+    await request(app)
+      .post('/api/paciente/cadastro')
+      .send(pacienteValido);
+
+    const res = await request(app).get('/api/paciente/get/123.456.789-01');
+    expect(res.statusCode).toEqual(200);
+  });
+
 });
 
 describe('Testes no Cadastro', () => {
@@ -138,7 +164,7 @@ describe('Testes no Cadastro', () => {
 
 describe('Testes no Login', () => {
   test('Paciente não encontrado', async () => {
-    const res = await request(app).post('/api/paciente/login').send({emailPaciente: 'emailfalso@email.com', senhaPaciente: 'senha123'});
+    const res = await request(app).post('/api/paciente/login').send({ emailPaciente: 'emailfalso@email.com', senhaPaciente: 'senha123' });
     expect(res.statusCode).toEqual(404);
     expect(res.body).toEqual({ error: '[?] PACIENTE NÃO ENCONTRADO.' });
   });
@@ -165,7 +191,7 @@ describe('Testes no Login', () => {
       .post('/api/paciente/cadastro')
       .send(pacienteValido);
 
-    const res = await request(app).post('/api/paciente/login').send({emailPaciente: 'teste.silva@example.com', senhaPaciente: 'senha12443'});
+    const res = await request(app).post('/api/paciente/login').send({ emailPaciente: 'teste.silva@example.com', senhaPaciente: 'senha12443' });
     expect(res.statusCode).toEqual(401);
     expect(res.body).toEqual({ error: '[!] Senha inválida.' });
   });
@@ -193,8 +219,45 @@ describe('Testes no Login', () => {
       .post('/api/paciente/cadastro')
       .send(pacienteValido);
 
-    const res = await request(app).post('/api/paciente/login').send({emailPaciente: 'teste.silva@example.com', senhaPaciente: 'senha123'});
+    const res = await request(app).post('/api/paciente/login').send({ emailPaciente: 'teste.silva@example.com', senhaPaciente: 'senha123' });
     expect(res.statusCode).toEqual(200);
     expect(res.body.message).toBe('Login realizado com sucesso');
   });
+});
+
+describe('Testes no DELETE', () => {
+  test('Delete ID inexistente', async () => {
+    const res = await request(app).get('/api/paciente/delete/12345');
+    expect(res.statusCode).toEqual(404);
+    expect(res.body).toEqual({message: '[?] PACIENTE NÃO ENCONTRADO'});
+  });
+  test('Delete ID existente', async () => {
+
+    const pacienteValido = {
+      cpfPaciente: '123.456.789-01',
+      nomePaciente: 'Teste da Silva',
+      dataNascimento: '19/03/2004',
+      emailPaciente: 'teste.silva@example.com',
+      senhaPaciente: 'senha123',
+      telefonePaciente: '11987654321',
+      enderecoPaciente: {
+        cep: "58700-015",
+        logradouro: "casa",
+        numero: "001",
+        complemento: "Esquina",
+        bairro: "Centro",
+        cidade: "Patos",
+        estado: "PB"
+      },
+      generoPaciente: 'Masculino'
+    };
+    await request(app)
+      .post('/api/paciente/cadastro')
+      .send(pacienteValido);
+
+    const res = await request(app).get('/api/paciente/delete/123.456.789-01');
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toEqual({ message: '[!] PACIENTE DELETADO COM SUCESSO' });
+  });
+
 });

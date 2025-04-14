@@ -5,10 +5,6 @@ const bcrypt = require('bcryptjs');
 
 // http://localhost:3000/api/pacientes/operacao 
 
-function test() {
-  return 'a'
-}
-
 // create
 router.post('/cadastro', async (req, res) => {
     try {
@@ -68,9 +64,10 @@ router.get('/get', async (req, res) => {
   }
 });
 
-router.get('/get/:id', async (req, res) => {
+router.get('/get/:cpfPaciente', async (req, res) => {
   try {
-    const paciente = await Paciente.findById(req.params.id);
+    const cpf = req.params.cpfPaciente;
+    const paciente = await Paciente.findOne({ cpfPaciente: cpf });
     if (!paciente) return res.status(404).json({ error: '[X] ERRO AO BUSCAR PACIENTE' }, error.message);
     res.status(200).json(paciente);
   } catch (error) {
@@ -80,17 +77,22 @@ router.get('/get/:id', async (req, res) => {
 
 
 // replace
-router.put('/atualizar/:id', async (req, res) => {
+router.put('/atualizar/:cpfPaciente', async (req, res) => {
   try {
-    const { id } = req.params;
+    const cpf = req.params.cpfPaciente;
     const updateData = req.body;
 
     if (!updateData || Object.keys(updateData).length === 0) {
       return res.status(400).json({ error: 'O corpo da requisição não pode estar vazio' });
     }
 
-    const pacienteAtualizado = await Paciente.findByIdAndUpdate(
-      id,
+    if (updateData.senhaPaciente) {
+      const senhaCrypt = await bcrypt.hash(updateData.senhaPaciente, 10);
+      updateData.senhaPaciente = senhaCrypt;
+    }
+
+    const pacienteAtualizado = await Paciente.findOneAndUpdate(
+      { cpfPaciente: cpf },
       updateData,
       { 
         new: true,
@@ -112,10 +114,10 @@ router.put('/atualizar/:id', async (req, res) => {
 });
 
 // delete
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/delete/:cpfPaciente', async (req, res) => {
     try {
-        const { id } = req.params;
-        const pacienteDeletado = await Paciente.findByIdAndDelete(id);
+        const cpf = req.params.cpfPaciente;
+        const pacienteDeletado = await Paciente.findOneAndDelete({ cpfPaciente: cpf });
 
         if (!pacienteDeletado) {
             return res.status(404).json({ message: '[?] PACIENTE NÃO ENCONTRADO' });
