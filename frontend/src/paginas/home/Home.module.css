@@ -1,0 +1,133 @@
+.container {
+  background-color: #73b5ca;
+  color: #333;  
+  padding-bottom: 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px 50px;
+    margin-bottom: 100px;
+}
+
+.logo{
+    width: 190px;
+    height: 190px;
+    margin-right: 80px ;
+    display: flex;
+    position: absolute;
+    top: -57px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    margin-left: 200px;
+    
+}
+
+.nav ul li {
+    margin: 0 15px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 20px;
+}
+
+.nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.search input {
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    margin-right: 10px;
+    background-color: #73B5CA;
+    color: white;
+}
+
+.search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #73B5CA;
+    width: 20px;
+    height: 20px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: white;
+    border-radius: 50px;
+    margin: 0px 50px;
+    height: 720px
+}
+
+.hero_text {
+    max-width: 50%;
+    margin-left: 100px;
+}
+
+.hero_text h1 {
+    font-size: 3.0em;
+    color: black;
+}
+
+.hero_text p {
+    margin: 50px 0;
+    font-size: 1.4em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.button {
+    background: #73B5CA;
+    color: rgb(255, 255, 255);
+    padding: 20px 25px;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: inset 0 0 10px rgb(83, 82, 82);
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background: #005fa3;
+}
+
+.hero_image img {
+    width: 650px;
+}
+
+.bar{
+    width: 100px;
+    height: 2px;
+    padding: 3px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    background-color: #73B5CA;
+}
