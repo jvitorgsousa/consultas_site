@@ -4,13 +4,15 @@ const port = 3000;
 
 const pacienteRouter = require('./api/Paciente');
 const consultaRouter = require('./api/Consulta');
+const medicoRouter = require('./api/Medico');
 
 module.exports = { app };
 
 app.use(express.json());
 
 app.use('/api/paciente', pacienteRouter);
-app.use('/api/consulta', consultaRouter)
+app.use('/api/consulta', consultaRouter);
+app.use('/api/medico', medicoRouter);
 
 const startServer = async () => {
   const port = 3000;

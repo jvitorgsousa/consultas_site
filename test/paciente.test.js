@@ -229,7 +229,7 @@ describe('Testes no DELETE', () => {
   test('Delete ID inexistente', async () => {
     const res = await request(app).get('/api/paciente/delete/12345');
     expect(res.statusCode).toEqual(404);
-    expect(res.body).toEqual({message: '[?] PACIENTE NÃO ENCONTRADO'});
+    expect(res.body).toEqual({ message: '[?] PACIENTE NÃO ENCONTRADO' });
   });
   test('Delete ID existente', async () => {
 

@@ -24,4 +24,56 @@ router.get('/listar', async (req, res) => {
     }
 })
 
+// read por id
+router.get('/listar/:id', async (req, res) => {
+    try {
+        const consulta = await Consulta.findById(req.params.id);
+        if (!consulta) {
+            return res.status(404).json({ error: '[X] CONSULTA NÃO ENCONTRADA.' });
+        }
+        res.status(200).json(consulta);
+    } catch (error) {
+        res.status(500).json({ error: '[X] ERRO AO OBTER CONSULTA.', details: error.message });
+    }
+});
+
+// update
+router.put('/alterar_consulta/:id', async (req, res) => {
+    try {
+        const consultaAtualizada = await Consulta.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true, runValidators: true }
+        );
+        
+        if (!consultaAtualizada) {
+            return res.status(404).json({ error: '[X] CONSULTA NÃO ENCONTRADA.' });
+        }
+        
+        res.status(200).json({ 
+            message: '[!] Consulta atualizada com sucesso.', 
+            consulta: consultaAtualizada 
+        });
+    } catch (error) {
+        console.error('[X] ERRO AO ATUALIZAR CONSULTA', error.message);
+        res.status(400).json({ error: error.message });
+    }
+});
+
+// delete
+router.delete('/desmarcar/:id', async (req, res) => {
+    try {
+        const consultaRemovida = await Consulta.findByIdAndDelete(req.params.id);
+        
+        if (!consultaRemovida) {
+            return res.status(404).json({ error: '[X] CONSULTA NÃO ENCONTRADA.' });
+        }
+        
+        res.status(200).json({ message: '[!] Consulta removida com sucesso.' });
+    } catch (error) {
+        console.error('[X] ERRO AO REMOVER CONSULTA', error.message);
+        res.status(500).json({ error: error.message });
+    }
+});
+
 module.exports = router;
