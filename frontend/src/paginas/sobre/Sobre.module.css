@@ -76,63 +76,20 @@
   
   .hero {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    align-items: flex-start; 
+    flex-direction: column; 
+    align-items: flex-start;
     padding: 50px;
     background: white;
     border-radius: 50px;
     margin: 0px 50px;
-    gap: 20px; 
-    height: auto; 
+    height: 900px;
 }
-
-.titulo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-left: 20px; 
-}
-
-  .banner {
-    margin-bottom: 300px;
-    background-image: url('/imagens/FundoDoAgendamento.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 250px;
-    width: 100%;
-    border-radius: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  } 
-
-  .bannerTitle {
-    margin-right: 1000px;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.bannerSearch {
-    margin-right: 1300px;
-    display: flex;
-    gap: 10px;
-    background-color: #ffff;
-    padding: 10px 20px;
-    border-radius: 50px;
-    align-items: center;
-}
-.bannerSearch input{
-    border: none;
-    outline: none;
-}
-.bannerSearch button{
-    border: none;
-    background-color: #ffff;
-}
+   
+  .bar{
+      width: 100px;
+      height: 2px;
+      padding: 3px;
+      margin: 20px 0px;
+      border-radius: 5px;
+      background-color: #73B5CA;
+  }
