@@ -21,6 +21,7 @@ function Home() {
             <li><Link to="/cadastro">CADASTRAR-SE</Link></li>
             <li><Link to="/login">LOGIN</Link></li>
             <li ><Link to="/sobre">SOBRE</Link></li>
+            <li ><Link to="/perfil">PERFIL</Link></li>
           </ul>
         </nav>
         <div className={styles.search}>
