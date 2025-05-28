@@ -1,0 +1,138 @@
+.container {
+    background-color: #73b5ca;
+    color: #333;  
+    padding-bottom: 100px;
+  }
+  
+  .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 20px 50px;
+      margin-bottom: 100px;
+  }
+  
+  .logo{
+      width: 190px;
+      height: 190px;
+      margin-right: 80px ;
+      display: flex;
+      position: absolute;
+      top: -57px;
+  }
+  
+  .nav {
+      display: flex;
+      align-items: center;
+  }
+  
+  .nav ul {
+      list-style: none;
+      display: flex;
+      margin-left: 300px;
+  }
+  
+  .nav ul li {
+      margin: 0 15px;
+  }
+  
+  .nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+      margin: 20px;
+  }
+  
+  .nav ul li a:hover {
+      color: #ffcc00;
+  }
+  
+  .search {
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      color: white;
+  }
+  
+  .search input {
+      padding: 10px;
+      border: none;
+      border-radius: 50px;
+      margin-right: 10px;
+      background-color: #73B5CA;
+      color: white;
+  }
+  
+  .search button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #73B5CA;
+      width: 20px;
+      height: 20px;
+  }
+  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    padding: 50px;
+    background: white;
+    border-radius: 50px;
+    margin: 0px 50px;
+    gap: 20px; 
+    height: auto; 
+}
+
+.titulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-left: 20px; 
+}
+
+  .banner {
+    margin-bottom: 300px;
+    background-image: url('/imagens/FundoDoAgendamento.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  } 
+
+  .bannerTitle {
+    margin-right: 1000px;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.bannerSearch {
+    margin-right: 1300px;
+    display: flex;
+    gap: 10px;
+    background-color: #ffff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    align-items: center;
+}
+.bannerSearch input{
+    border: none;
+    outline: none;
+}
+.bannerSearch button{
+    border: none;
+    background-color: #ffff;
+}
