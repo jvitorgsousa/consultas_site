@@ -17,6 +17,7 @@ function Sobre() {
         
         <nav className={styles.nav}>
           <ul>
+            <li ><Link to="/">INICIO</Link></li>
             <li><Link to="/agendamento">AGENDAR CONSULTA</Link></li>
             <li><Link to="/calendario">CALENDÁRIO MÉDICO</Link></li>
             <li><Link to="/cadastro">CADASTRAR-SE</Link></li>

@@ -1,11 +1,10 @@
-function Botao({ textoBotao, Icone, onClick }) {
+function Botao({ textoBotao, Icone, onClick, className, ...props }) {
     return (
-        <div>
-            <button onClick={onClick}>
-                {Icone && <Icone />}
-                {textoBotao}
-            </button>
-        </div>
-    )
+        <button onClick={onClick} className={className} {...props}>
+            {Icone && <Icone />}
+            {textoBotao}
+        </button>
+    );
 }
+
 export default Botao;

@@ -1,86 +1,267 @@
 .container {
     background-color: #73b5ca;
-    color: #333;  
+    color: #333;
     padding-bottom: 100px;
   }
   
   .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      padding: 20px 50px;
-      margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px 50px;
+    margin-bottom: 100px;
   }
   
-  .logo{
-      width: 190px;
-      height: 190px;
-      margin-right: 80px ;
-      display: flex;
-      position: absolute;
-      top: -57px;
+  .logo {
+    width: 190px;
+    height: 190px;
+    margin-right: 80px;
+    display: flex;
+    position: absolute;
+    top: -57px;
   }
   
   .nav {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
   }
   
   .nav ul {
-      list-style: none;
-      display: flex;
-      margin-left: 300px;
+    list-style: none;
+    display: flex;
+    margin-left: 300px;
   }
   
   .nav ul li {
-      margin: 0 15px;
+    margin: 0 15px;
   }
   
   .nav ul li a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      transition: 0.3s;
-      margin: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 20px;
   }
   
   .nav ul li a:hover {
-      color: #ffcc00;
+    color: #ffcc00;
   }
   
   .search {
-      display: flex;
-      align-items: center;
-      border-radius: 10px;
-      color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
   }
   
   .search input {
-      padding: 10px;
-      border: none;
-      border-radius: 50px;
-      margin-right: 10px;
-      background-color: #73B5CA;
-      color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    margin-right: 10px;
+    background-color: #73B5CA;
+    color: white;
   }
   
   .search button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #73B5CA;
-      width: 20px;
-      height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #73B5CA;
+    width: 20px;
+    height: 20px;
   }
   
   .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 50px;
-      background: white;
-      border-radius: 50px;
-      margin: 0px 50px;
-      height: 720px
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    background: white;
+    border-radius: 50px;
+    margin: 0px 50px;
+    height: auto;
+    min-height: 720px;
+    overflow: hidden;
   }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .Perfil {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .Perfil img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .Perfil p {
+    text-align: center;
+    margin: 2px 0;
+    font-weight: bold;
+  }
+  
+  .Historioco, .Canceladas, .Concluidas {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .Historioco h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .Historioco h3 {
+    font-size: 16px;
+    color: #73b5ca;
+    margin-bottom: 8px;
+  }
+  
+  .Historioco button,
+  .Canceladas button,
+  .Concluidas button {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 5px;
+  }
+  
+  .Historioco button {
+    background-color: #73b5ca;
+    color: white;
+  }
+  
+  .Canceladas button {
+    background-color: #c2e3ee;
+    color: #333;
+  }
+  
+  .Concluidas button {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .formulario {
+    width: 100%;
+    padding: 40px 60px;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  .dados_pessoais, .endereco {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .categoria {
+    color: #73b5ca;
+    padding-top: 20px;
+    font-size: 22px;
+  }
+  
+  input, select {
+    display: flex;
+    background: #e9eef0;
+    width: 100%;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  
+  .dois_input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .dois_input div {
+    width: 100%;
+  }
+  
+  .cep_rua {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .cep_input {
+    width: 25%;
+  }
+  
+  .rua_input {
+    width: 75%;
+  }
+  
+  .bairro_n {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .bairro_input {
+    width: 75%;
+  }
+  
+  .n_input {
+    width: 25%;
+  }
+  
+  .cidade_estado {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .cidade_input {
+    width: 50%;
+  }
+  
+  .estado_input {
+    width: 50%;
+  }
+  
+  .complemento_input {
+    width: 100%;
+  }
+  
+  .botoes {
+    width: 100%;
+    margin-top: 25px;
+  }
+  
+  .botoes button {
+    background: #73b5ca;
+    border: none;
+    padding: 12px 0px;
+    color: white;
+    font-weight: 900;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  

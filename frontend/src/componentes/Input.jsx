@@ -1,13 +1,14 @@
-function Input({ tipoInput = "text", textoInput, value, onChange }) {
+function Input({ tipoInput = "text", textoInput, value, onChange, name, className, ...props }) {
     return (
-        <div>
-            <input 
-                type={tipoInput} 
-                placeholder={textoInput} 
-                value={value}
-                onChange={onChange}
-            />
-        </div>
+        <input 
+            type={tipoInput} 
+            placeholder={textoInput} 
+            value={value}
+            onChange={onChange}
+            name={name}
+            className={className}
+            {...props}
+        />
     );
 }
 

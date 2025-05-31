@@ -136,3 +136,26 @@
     border: none;
     background-color: #ffff;
 }
+
+.Status_da_Consulta {
+  width: 100%;
+  padding: 10px 20px;
+  border-top: 2px solid #eee;
+  margin-top: 20px;
+}
+
+.Status_da_Consulta h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.consultaItem {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.consultaItem:last-child {
+  border-bottom: none;
+}
